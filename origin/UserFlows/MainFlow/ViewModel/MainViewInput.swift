@@ -8,5 +8,6 @@
 import Foundation
 
 protocol MainViewInput {
-    
+    var viewModel: MainViewOutput { get }
+    func configureViews(_ contacts: [ContactModel])
 }

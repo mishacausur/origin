@@ -7,5 +7,8 @@
 
 import Foundation
 
-protocol MainViewOutput: Coordinated {    
+protocol MainViewOutput: Coordinated {
+    var viewInput: MainViewInput? { get set }
+    func getData()
+    func moveToDetailVC(_ contact: ContactModel)
 }

@@ -10,18 +10,10 @@ import UIKit
 
 class MainView: UIView {
     
-    private lazy var tableView = UITableView(frame: .zero, style: .grouped).configure {
-        $0.delegate = self
-        $0.dataSource = self
-        $0.backgroundColor = .white
-        $0.separatorStyle = .singleLine
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.register(ContactTableViewCell.self, forCellReuseIdentifier: "Cell")
-    }
+    var completion: ((ContactModel) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureView()
         self.backgroundColor = .white
         
     }
@@ -29,25 +21,19 @@ class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureView() {
-        self.addSubview(tableView)
-        [tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-         tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-         tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-         tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)].forEach { $0.isActive = true}
+    func setupView(_ contacts: [ContactModel]) {
+        let contactTableView = ContactsTableView(frame: .zero, contacts: contacts)
+        self.addSubview(contactTableView)
+        contactTableView.translatesAutoresizingMaskIntoConstraints = false
+        [contactTableView.topAnchor.constraint(equalTo: self.topAnchor),
+         contactTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+         contactTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+         contactTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)].forEach { $0.isActive = true }
+        contactTableView.completion = { [weak self] contact in
+            defer { withExtendedLifetime(self) {} }
+            self?.completion?(contact)
+        }
     }
+ 
 }
 
-extension MainView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ContactTableViewCell
-//        cell.backgroundColor = .blue
-        return cell
-    }
-    
-    
-}

@@ -12,27 +12,34 @@ class MainViewController: UIViewController, ViewController {
     var viewModel: MainViewOutput
     
     init(viewModel: MainViewOutput) {
-           self.viewModel = viewModel
-           super.init(nibName: nil, bundle: nil)
-       }
-       
-       required init?(coder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.viewInput = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getData()
         title = "Contacts"
-        NetworkManager.shared.getData(Links.one) { contacts in
-            print(contacts[0])
+        view().completion = { [weak self] contact in
+            defer { withExtendedLifetime(self) {} }
+            self?.viewModel.moveToDetailVC(contact)
         }
-        
     }
-
+    
     override func loadView() {
-           let view = MainView()
-           self.view = view
-       }
-
+        let view = MainView()
+        self.view = view
+    }
+    
 }
 
+extension MainViewController: MainViewInput {
+    func configureViews(_ contacts: [ContactModel]) {
+        view().setupView(contacts)
+    }
+}

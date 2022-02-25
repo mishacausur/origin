@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coodinator = Coordinator(navigationController: navigationController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        coodinator?.eventOccured(.start)
+        coodinator?.eventOccured(.start, contact: nil)
         return true
     }
     

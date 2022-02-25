@@ -10,14 +10,18 @@ import UIKit
 
 class Coordinator: Coordinating {
     var navigationController: UINavigationController?
-    func eventOccured(_ event: Events) {
+    func eventOccured(_ event: Events, contact: ContactModel?) {
         switch event {
         case .start:
             start()
         case .dismiss:
-            print("dismissed")
+            dismiss()
         case .pushDetailsViewController:
-            print("pushed")
+            guard let contact = contact else {
+                return
+            }
+
+            toDetailViewController(contact)
         }
     }
     
@@ -27,9 +31,20 @@ class Coordinator: Coordinating {
     
     private func start() {
         let viewModel = MainViewModel()
-        let vc = MainViewController(viewModel: viewModel)
+        let viewController = MainViewController(viewModel: viewModel)
         viewModel.coordinator = self
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func toDetailViewController(_ contact: ContactModel) {
+        let viewModel = DetailViewModel(contact)
+        let viewController = DetailViewController(viewModel: viewModel)
+        viewModel.coordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func dismiss() {
+        navigationController?.dismiss(animated: true)
     }
     
 }
