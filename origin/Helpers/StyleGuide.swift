@@ -10,6 +10,7 @@ import UIKit
 
 enum Font {
     case primary
+    case headline
     case secondary
     case linked
     
@@ -17,10 +18,13 @@ enum Font {
         switch font {
         case .primary:
             return UIFont.systemFont(ofSize: 18, weight: .bold)
+        case .headline:
+            return UIFont.systemFont(ofSize: 28, weight: .medium)
         case .secondary:
             return UIFont.systemFont(ofSize: 16, weight: .regular)
         case .linked:
             return UIFont.systemFont(ofSize: 18, weight: .bold)
+       
         }
     }
 }

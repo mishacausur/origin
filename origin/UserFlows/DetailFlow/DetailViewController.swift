@@ -27,7 +27,7 @@ class DetailViewController: UIViewController, ViewController {
     }
     
     override func loadView() {
-        let view = DetailView()
+        let view = DetailView(frame: .zero, contact: viewModel.contact)
         self.view = view
     }
     
