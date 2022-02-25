@@ -23,6 +23,11 @@
 		B623A6CE27C8DC4000B41ED4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6CD27C8DC4000B41ED4 /* MainView.swift */; };
 		B623A6D127C8DC9C00B41ED4 /* MainViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6D027C8DC9C00B41ED4 /* MainViewInput.swift */; };
 		B623A6D327C8DCA600B41ED4 /* MainViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6D227C8DCA600B41ED4 /* MainViewOutput.swift */; };
+		B623A6D627C8E0E400B41ED4 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6D527C8E0E400B41ED4 /* ContactModel.swift */; };
+		B623A6D927C8E2B900B41ED4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6D827C8E2B900B41ED4 /* NetworkManager.swift */; };
+		B623A6DB27C8E35A00B41ED4 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6DA27C8E35A00B41ED4 /* Links.swift */; };
+		B623A6DE27C8FA0300B41ED4 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6DD27C8FA0300B41ED4 /* ContactTableViewCell.swift */; };
+		B623A6E027C8FD1B00B41ED4 /* MultiplyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6DF27C8FD1B00B41ED4 /* MultiplyViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		B623A6CD27C8DC4000B41ED4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B623A6D027C8DC9C00B41ED4 /* MainViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewInput.swift; sourceTree = "<group>"; };
 		B623A6D227C8DCA600B41ED4 /* MainViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewOutput.swift; sourceTree = "<group>"; };
+		B623A6D527C8E0E400B41ED4 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		B623A6D827C8E2B900B41ED4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B623A6DA27C8E35A00B41ED4 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		B623A6DD27C8FA0300B41ED4 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		B623A6DF27C8FD1B00B41ED4 /* MultiplyViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,13 +86,15 @@
 		B623A69527C8D56D00B41ED4 /* origin */ = {
 			isa = PBXGroup;
 			children = (
+				B623A6D727C8E2AA00B41ED4 /* Networker */,
+				B623A6D427C8E0D200B41ED4 /* DataModel */,
 				B623A6C627C8DBD000B41ED4 /* UserFlows */,
 				B623A6B927C8DA6F00B41ED4 /* Helpers */,
-				B623A69627C8D56D00B41ED4 /* AppDelegate.swift */,
 				B623A6AC27C8D69800B41ED4 /* Coordinator */,
 				B623A69F27C8D56E00B41ED4 /* Assets.xcassets */,
 				B623A6A127C8D56E00B41ED4 /* LaunchScreen.storyboard */,
 				B623A6A427C8D56E00B41ED4 /* Info.plist */,
+				B623A69627C8D56D00B41ED4 /* AppDelegate.swift */,
 			);
 			path = origin;
 			sourceTree = "<group>";
@@ -120,6 +132,7 @@
 				B623A6BA27C8DA7B00B41ED4 /* StyleGuide.swift */,
 				B623A6BE27C8DAAD00B41ED4 /* Controller.swift */,
 				B623A6C027C8DAD200B41ED4 /* Configure */,
+				B623A6DF27C8FD1B00B41ED4 /* MultiplyViews.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -136,8 +149,8 @@
 		B623A6C627C8DBD000B41ED4 /* UserFlows */ = {
 			isa = PBXGroup;
 			children = (
-				B623A6C827C8DBE100B41ED4 /* DetailFlow */,
 				B623A6C727C8DBD800B41ED4 /* MainFlow */,
+				B623A6C827C8DBE100B41ED4 /* DetailFlow */,
 			);
 			path = UserFlows;
 			sourceTree = "<group>";
@@ -145,6 +158,7 @@
 		B623A6C727C8DBD800B41ED4 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				B623A6DC27C8F22B00B41ED4 /* ContactsTableView */,
 				B623A6CF27C8DC8100B41ED4 /* ViewModel */,
 				B623A69A27C8D56D00B41ED4 /* MainViewController.swift */,
 				B623A6CD27C8DC4000B41ED4 /* MainView.swift */,
@@ -167,6 +181,31 @@
 				B623A6D027C8DC9C00B41ED4 /* MainViewInput.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B623A6D427C8E0D200B41ED4 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B623A6D527C8E0E400B41ED4 /* ContactModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		B623A6D727C8E2AA00B41ED4 /* Networker */ = {
+			isa = PBXGroup;
+			children = (
+				B623A6D827C8E2B900B41ED4 /* NetworkManager.swift */,
+				B623A6DA27C8E35A00B41ED4 /* Links.swift */,
+			);
+			path = Networker;
+			sourceTree = "<group>";
+		};
+		B623A6DC27C8F22B00B41ED4 /* ContactsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				B623A6DD27C8FA0300B41ED4 /* ContactTableViewCell.swift */,
+			);
+			path = ContactsTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,12 +282,17 @@
 				B623A6CE27C8DC4000B41ED4 /* MainView.swift in Sources */,
 				B623A6BD27C8DA8A00B41ED4 /* Configure.swift in Sources */,
 				B623A6BB27C8DA7B00B41ED4 /* StyleGuide.swift in Sources */,
+				B623A6D927C8E2B900B41ED4 /* NetworkManager.swift in Sources */,
 				B623A6CC27C8DC1600B41ED4 /* MainViewModel.swift in Sources */,
+				B623A6DE27C8FA0300B41ED4 /* ContactTableViewCell.swift in Sources */,
 				B623A6B527C8D8F900B41ED4 /* Events.swift in Sources */,
 				B623A6C227C8DB0600B41ED4 /* Configures.swift in Sources */,
 				B623A6D127C8DC9C00B41ED4 /* MainViewInput.swift in Sources */,
+				B623A6E027C8FD1B00B41ED4 /* MultiplyViews.swift in Sources */,
+				B623A6D627C8E0E400B41ED4 /* ContactModel.swift in Sources */,
 				B623A6AE27C8D6A800B41ED4 /* Coordinator.swift in Sources */,
 				B623A69B27C8D56D00B41ED4 /* MainViewController.swift in Sources */,
+				B623A6DB27C8E35A00B41ED4 /* Links.swift in Sources */,
 				B623A6AB27C8D64200B41ED4 /* Coordinating.swift in Sources */,
 				B623A69727C8D56D00B41ED4 /* AppDelegate.swift in Sources */,
 				B623A6D327C8DCA600B41ED4 /* MainViewOutput.swift in Sources */,

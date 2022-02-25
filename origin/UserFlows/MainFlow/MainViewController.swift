@@ -22,6 +22,10 @@ class MainViewController: UIViewController, ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Contacts"
+        NetworkManager.shared.getData(Links.one) { contacts in
+            print(contacts[0])
+        }
         
     }
 
