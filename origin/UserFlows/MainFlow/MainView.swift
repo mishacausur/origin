@@ -34,6 +34,5 @@ class MainView: UIView {
             self?.completion?(contact)
         }
     }
- 
 }
 

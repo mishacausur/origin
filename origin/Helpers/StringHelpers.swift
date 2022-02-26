@@ -1,5 +1,5 @@
 //
-//  FirstCapitallized.swift
+//  StringHelpers.swift
 //  origin
 //
 //  Created by Misha Causur on 26.02.2022.

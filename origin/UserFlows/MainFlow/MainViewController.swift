@@ -30,16 +30,11 @@ class MainViewController: UIViewController, ViewController {
             self?.viewModel.moveToDetailVC(contact)
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-   
+
     override func loadView() {
         let view = MainView()
         self.view = view
     }
-    
 }
 
 extension MainViewController: MainViewInput {
