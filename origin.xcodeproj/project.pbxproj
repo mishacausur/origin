@@ -34,6 +34,8 @@
 		B623A6E927C910AF00B41ED4 /* DetailViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6E827C910AF00B41ED4 /* DetailViewInput.swift */; };
 		B623A6EB27C910BA00B41ED4 /* DetailViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6EA27C910BA00B41ED4 /* DetailViewOutput.swift */; };
 		B623A6ED27C910C800B41ED4 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6EC27C910C800B41ED4 /* DetailViewModel.swift */; };
+		B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */; };
+		B623A6F127C96B3200B41ED4 /* FirstCapitallized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F027C96B3200B41ED4 /* FirstCapitallized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		B623A6E827C910AF00B41ED4 /* DetailViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewInput.swift; sourceTree = "<group>"; };
 		B623A6EA27C910BA00B41ED4 /* DetailViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewOutput.swift; sourceTree = "<group>"; };
 		B623A6EC27C910C800B41ED4 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFormatter.swift; sourceTree = "<group>"; };
+		B623A6F027C96B3200B41ED4 /* FirstCapitallized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCapitallized.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 				B623A6BE27C8DAAD00B41ED4 /* Controller.swift */,
 				B623A6C027C8DAD200B41ED4 /* Configure */,
 				B623A6DF27C8FD1B00B41ED4 /* MultiplyViews.swift */,
+				B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */,
+				B623A6F027C96B3200B41ED4 /* FirstCapitallized.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			files = (
 				B623A6BF27C8DAAD00B41ED4 /* Controller.swift in Sources */,
 				B623A6CE27C8DC4000B41ED4 /* MainView.swift in Sources */,
+				B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */,
 				B623A6BD27C8DA8A00B41ED4 /* Configure.swift in Sources */,
 				B623A6BB27C8DA7B00B41ED4 /* StyleGuide.swift in Sources */,
 				B623A6E227C906F500B41ED4 /* ContactsTableView.swift in Sources */,
@@ -328,6 +335,7 @@
 				B623A6AB27C8D64200B41ED4 /* Coordinating.swift in Sources */,
 				B623A69727C8D56D00B41ED4 /* AppDelegate.swift in Sources */,
 				B623A6D327C8DCA600B41ED4 /* MainViewOutput.swift in Sources */,
+				B623A6F127C96B3200B41ED4 /* FirstCapitallized.swift in Sources */,
 				B623A6B227C8D6DB00B41ED4 /* Coordinated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

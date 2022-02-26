@@ -17,6 +17,14 @@ struct ContactModel: Codable {
 
 struct EducationPeriod: Codable {
     let start, end: String
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let startString = try container.decode(String.self, forKey: .start)
+        let endString = try container.decode(String.self, forKey: .end)
+        start = CalendarFormatter.shared.formatted(startString)
+        end = CalendarFormatter.shared.formatted(endString)
+    }
 }
 
 enum Temperament: String, Codable {

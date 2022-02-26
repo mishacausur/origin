@@ -42,8 +42,8 @@ class ContactTableViewCell: UITableViewCell {
     
     func extendCellWithData(_ contact: ContactModel) {
         nameLabel.text = contact.name
-        phoneLabel.text = contact.phone
-        temperamentLabel.text = contact.temperament.rawValue
+        phoneLabel.text = contact.phone.numbered
+        temperamentLabel.text = contact.temperament.rawValue.firstCapitalized
     }
     
     private func setupCell() {

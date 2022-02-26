@@ -23,7 +23,16 @@ class DetailViewController: UIViewController, ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view().phoneNumberTapped = { [weak self] in
+            defer { withExtendedLifetime(self) {} }
+            self?.viewModel.makeCall()
+        }
         title = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     override func loadView() {

@@ -10,4 +10,5 @@ import Foundation
 protocol DetailViewOutput: Coordinated {
     var viewInput: DetailViewInput? { get set }
     var contact: ContactModel { get }
+    func makeCall() 
 }
