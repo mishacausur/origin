@@ -14,7 +14,6 @@ class AppManager {
     static let shared = AppManager()
     private init() {}
    
-    
     func chackDate() -> Bool {
     
         guard let lastDate = UserDefaults.standard.string(forKey: "lastDate"), let doubleDate = Double(lastDate) else {
@@ -56,25 +55,4 @@ class AppManager {
             print("from database")
         }
     }
-}
-
-class UserDefaultsManager {
-    
-    private let userDefaults = UserDefaults.standard
-    
-    static let shared = UserDefaultsManager()
-    
-    private init() {}
-    
-    func updateValue() {
-        let value = "\(Date().timeIntervalSince1970)"
-        userDefaults.setValue(value, forKey: "lastDate")
-    }
-}
-
-enum AppError: Error {
-    case cantGetData
-}
-enum Result {
-    case success([ContactModel]), failure(AppError)
 }
