@@ -20,6 +20,22 @@ class MainView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    private let errorView = UIView().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.layer.cornerRadius = 12
+        $0.layer.masksToBounds = true
+        $0.backgroundColor = .black
+        $0.alpha = 0.6
+    }
+    
+    private let errorLabel = UILabel().configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = Font.font(.primary)
+        $0.textColor = .white
+        $0.text = "Нет подключения к сети"
+        $0.numberOfLines = 0
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -29,6 +45,20 @@ class MainView: UIView {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func showErrorView() {
+        self.addSubviews(errorView, errorLabel)
+        let constraints = [
+            errorView.heightAnchor.constraint(equalToConstant: 64),
+            errorView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            errorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+            errorView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -42),
+        
+            errorLabel.centerXAnchor.constraint(equalTo: errorView.centerXAnchor),
+            errorLabel.centerYAnchor.constraint(equalTo: errorView.centerYAnchor)]
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     func setupView(_ contacts: [ContactModel]) {
