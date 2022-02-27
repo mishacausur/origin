@@ -38,6 +38,7 @@ class AppManager {
                 if !contacts.isEmpty {
                     DispatchQueue.main.async {
                         completion(.success(contacts.sorted { $0.name < $1.name }))
+                        print("from interner")
                         UserDefaultsManager.shared.updateValue()
                     }
                 } else {
@@ -51,7 +52,8 @@ class AppManager {
         queue.async {
             let models = AppDatabase.shared.readContacts()
             let contacts = AppDatabase.shared.createContacts(models)
-            completion(.success(contacts))
+            completion(.success(contacts.sorted { $0.name < $1.name }))
+            print("from database")
         }
     }
 }

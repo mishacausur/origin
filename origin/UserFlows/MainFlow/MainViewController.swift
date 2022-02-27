@@ -44,7 +44,12 @@ class MainViewController: UIViewController, ViewController {
 }
 
 extension MainViewController: MainViewInput {
+    
     func configureViews(_ contacts: [ContactModel]) {
         view().setupView(contacts)
+    }
+    
+    func showError() {
+        view().showErrorView()
     }
 }
