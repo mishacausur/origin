@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import GRDB
 
-struct ContactModel: Codable {
-    let id, name, phone: String
-    let height: Double
-    let biography: String
-    let temperament: Temperament
-    let educationPeriod: EducationPeriod
+struct ContactModel: Codable, FetchableRecord {
+    var id, name, phone: String
+    var height: Double
+    var biography: String
+    var temperament: Temperament
+    var educationPeriod: EducationPeriod
 }
 
-struct EducationPeriod: Codable {
+struct EducationPeriod: Codable, FetchableRecord {
     let start, end: String
     
     public init(from decoder: Decoder) throws {
@@ -25,6 +26,11 @@ struct EducationPeriod: Codable {
         start = CalendarFormatter.shared.formatted(startString)
         end = CalendarFormatter.shared.formatted(endString)
     }
+    
+     init(start: String, end: String) {
+         self.start = start
+         self.end = end
+    }
 }
 
 enum Temperament: String, Codable {
@@ -33,3 +39,6 @@ enum Temperament: String, Codable {
     case sanguine = "sanguine"
     case choleric = "choleric"
 }
+
+
+

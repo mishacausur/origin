@@ -15,7 +15,6 @@ class ContactsTableView: UIView {
     var contacts: [ContactModel]
     private var filteredContacts: [ContactModel] = []
     private var isFiltered: Bool = false
-//    private let searchController = UISearchController(searchResultsController: nil)
     
     private lazy var tableView = UITableView(frame: .zero, style: .grouped).configure {
         $0.delegate = self
@@ -30,8 +29,12 @@ class ContactsTableView: UIView {
         self.contacts = contacts
         super.init(frame: frame)
         self.backgroundColor = .white
-//        tableView.tableHeaderView = searchController.searchBar
         configureView()
+        for i in contacts {
+            var contact = i
+            try! AppDatabase.shared.saveContact(&contact)
+        }
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -82,8 +85,13 @@ extension ContactsTableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = contacts[indexPath.row]
-        completion?(contact)
+        if isFiltered {
+            let contact = filteredContacts[indexPath.row]
+            completion?(contact)
+        } else {
+            let contact = contacts[indexPath.row]
+            completion?(contact)
+        }
     }
 }
 
