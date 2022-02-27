@@ -19,11 +19,7 @@ final class AppDatabase {
     
     private var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
-#if DEBUG
-        // Speed up development by nuking the database when migrations change
-        // See https://github.com/groue/GRDB.swift/blob/master/Documentation/Migrations.md#the-erasedatabaseonschemachange-option
-        migrator.eraseDatabaseOnSchemaChange = true
-#endif
+        
         migrator.registerMigration("createContact") { database in
             
             try database.create(table: "databaseModel") { contact in
@@ -35,7 +31,7 @@ final class AppDatabase {
                 contact.column("temperament", .text).notNull()
                 contact.column("start", .text).notNull()
                 contact.column("end", .text).notNull()
-               
+                
             }
         }
         return migrator
@@ -65,7 +61,7 @@ extension AppDatabase {
             } catch {
                 print("OOOOPS")
             }
-
+            
         }
     }
     
