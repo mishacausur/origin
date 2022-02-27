@@ -29,17 +29,18 @@ class MainViewController: UIViewController, ViewController {
             defer { withExtendedLifetime(self) {} }
             self?.viewModel.moveToDetailVC(contact)
         }
+        view().update = { [weak self] in
+            defer { withExtendedLifetime(self) {} }
+            self?.viewModel.getData()
+        }
+        navigationItem.searchController = view().searchController
+        definesPresentationContext = true
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-   
+
     override func loadView() {
         let view = MainView()
         self.view = view
     }
-    
 }
 
 extension MainViewController: MainViewInput {

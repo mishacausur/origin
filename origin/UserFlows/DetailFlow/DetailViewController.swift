@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailViewController: UIViewController, ViewController {
+    
     typealias RootView = DetailView
     var viewModel: DetailViewOutput
     
@@ -39,10 +40,7 @@ class DetailViewController: UIViewController, ViewController {
         let view = DetailView(frame: .zero, contact: viewModel.contact)
         self.view = view
     }
-    
-    
 }
 
 extension DetailViewController: DetailViewInput {
-    
 }
