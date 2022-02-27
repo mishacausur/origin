@@ -26,12 +26,7 @@ struct EducationPeriod: Codable, FetchableRecord {
         start = CalendarFormatter.shared.formed(startString)
         end = CalendarFormatter.shared.formed(endString)
     }
-    
-//     init(start: String, end: String) {
-//         self.start = CalendarFormatter.shared.formed(start)
-//         self.end = CalendarFormatter.shared.formed(end)
-//    }
-    
+
     init(start: Date, end: Date) {
         self.start = start
         self.end = end
