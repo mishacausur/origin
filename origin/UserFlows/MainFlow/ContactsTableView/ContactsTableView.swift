@@ -101,14 +101,22 @@ extension ContactsTableView: UISearchResultsUpdating {
     }
     
     private func searchContact(_ searchText: String) {
-        DispatchQueue.global().async {
-            self.filteredContacts = self.contacts.filter({ contact in
-                contact.name.lowercased().contains(searchText.lowercased())
-            })
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            defer { withExtendedLifetime(self) {} }
+            if searchText.isNumeric {
+                self.filteredContacts = self.contacts.filter({ contact in
+                    contact.phone.numberedUnspaced.contains(searchText.numberedUnspaced)
+                })
+            } else {
+                self.filteredContacts = self.contacts.filter({ contact in
+                    contact.name.lowercased().contains(searchText.lowercased())
+                })
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-          
+            
         }
         
     }

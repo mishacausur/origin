@@ -24,7 +24,6 @@ enum Font {
             return UIFont.systemFont(ofSize: 16, weight: .regular)
         case .linked:
             return UIFont.systemFont(ofSize: 16, weight: .medium)
-       
         }
     }
 }
