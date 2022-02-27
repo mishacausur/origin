@@ -29,8 +29,8 @@ final class AppDatabase {
                 contact.column("height", .double).notNull()
                 contact.column("biography", .text).notNull()
                 contact.column("temperament", .text).notNull()
-                contact.column("start", .text).notNull()
-                contact.column("end", .text).notNull()
+                contact.column("start", .date).notNull()
+                contact.column("end", .date).notNull()
                 
             }
         }

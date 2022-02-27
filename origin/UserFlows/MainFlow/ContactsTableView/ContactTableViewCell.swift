@@ -20,14 +20,12 @@ class ContactTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = Font.font(.secondary)
         $0.textColor = Color.color(.secondary)
-//        $0.text = "+7 903 080 40 46"
     }
     
     private let temperamentLabel = UILabel().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = Font.font(.secondary)
         $0.textColor = Color.color(.secondary)
-//        $0.text = "melancholic"
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

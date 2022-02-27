@@ -39,9 +39,7 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        addActivityIndicator()
-       
-        
+        addActivityIndicator() 
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -65,7 +63,6 @@ class MainView: UIView {
         let contactTableView = ContactsTableView(frame: .zero, contacts: contacts)
         searchController.searchResultsUpdater = contactTableView
         searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.searchBar.delegate = contactTableView
         self.addSubview(contactTableView)
         contactTableView.translatesAutoresizingMaskIntoConstraints = false
         [contactTableView.topAnchor.constraint(equalTo: self.topAnchor),

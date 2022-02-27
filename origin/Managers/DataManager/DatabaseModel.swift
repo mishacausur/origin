@@ -9,7 +9,8 @@ import Foundation
 import GRDB
 
 struct DatabaseModel: Codable, FetchableRecord, MutablePersistableRecord {
-    var id, name, phone, biography, start, end: String
+    var id, name, phone, biography: String
+    var start, end: Date
     var height: Double
     var temperament: Temperament
 }

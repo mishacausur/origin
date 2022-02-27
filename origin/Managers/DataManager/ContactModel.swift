@@ -17,20 +17,25 @@ struct ContactModel: Codable, FetchableRecord {
 }
 
 struct EducationPeriod: Codable, FetchableRecord {
-    let start, end: String
+    let start, end: Date
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let startString = try container.decode(String.self, forKey: .start)
         let endString = try container.decode(String.self, forKey: .end)
-        start = CalendarFormatter.shared.formatted(startString)
-        end = CalendarFormatter.shared.formatted(endString)
+        start = CalendarFormatter.shared.formed(startString)
+        end = CalendarFormatter.shared.formed(endString)
     }
     
-     init(start: String, end: String) {
-         self.start = start
-         self.end = end
-    }
+//     init(start: String, end: String) {
+//         self.start = CalendarFormatter.shared.formed(start)
+//         self.end = CalendarFormatter.shared.formed(end)
+//    }
+    
+    init(start: Date, end: Date) {
+        self.start = start
+        self.end = end
+   }
 }
 
 enum Temperament: String, Codable {

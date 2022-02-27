@@ -80,7 +80,9 @@ class DetailView: UIView {
     private func configureView() {
         nameLabel.text = contact.name
         desciptionLabel.text = contact.biography
-        dateLabel.text = "\(contact.educationPeriod.start) - \(contact.educationPeriod.end)"
+        let start = CalendarFormatter.shared.formatted(contact.educationPeriod.start)
+        let end = CalendarFormatter.shared.formatted(contact.educationPeriod.end)
+        dateLabel.text = "\(start) - \(end)"
         temperamentLabel.text = contact.temperament.rawValue.firstCapitalized
         makePhoneLabelString(contact.phone.numbered)
         gestureCreator()

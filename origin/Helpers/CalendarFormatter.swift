@@ -23,9 +23,8 @@ class CalendarFormatter {
         
     }
     
-    func formatted(_ string: String) -> String {
-        guard let start = formatter.date(from: string) else { return "" }
-        let date = calendarFormatted.string(from: start)
+    func formatted(_ date: Date) -> String {
+        let date = calendarFormatted.string(from: date)
         return date
     }
     
