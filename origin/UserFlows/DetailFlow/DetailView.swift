@@ -14,6 +14,11 @@ class DetailView: UIView {
     
     var phoneNumberTapped: (() -> Void)?
     
+    private let scrollView = UIScrollView(frame: .zero).configure {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .clear
+    }
+
     private let nameLabel = UILabel().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = Font.font(.headline)
@@ -79,17 +84,23 @@ class DetailView: UIView {
         temperamentLabel.text = contact.temperament.rawValue.firstCapitalized
         makePhoneLabelString(contact.phone.numbered)
         gestureCreator()
-        self.addSubviews(nameLabel, dateLabel, temperamentLabel, topSeparator, phoneLabel, bottomSeparator, desciptionLabel)
+        self.addSubviews(scrollView)
+        scrollView.addSubviews(nameLabel, dateLabel, temperamentLabel, topSeparator, phoneLabel, bottomSeparator, desciptionLabel)
         let constraints = [
-            nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-            nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            nameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            nameLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             nameLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 350),
             
             dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
-            dateLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            dateLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             temperamentLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 6),
-            temperamentLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            temperamentLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             topSeparator.topAnchor.constraint(equalTo: temperamentLabel.bottomAnchor, constant: 28),
             topSeparator.heightAnchor.constraint(equalToConstant: 0.5),
@@ -97,7 +108,7 @@ class DetailView: UIView {
             topSeparator.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
             
             phoneLabel.topAnchor.constraint(equalTo: topSeparator.bottomAnchor, constant: 22),
-            phoneLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            phoneLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             bottomSeparator.topAnchor.constraint(equalTo: phoneLabel.bottomAnchor, constant: 22),
             bottomSeparator.heightAnchor.constraint(equalToConstant: 0.5),
@@ -106,7 +117,8 @@ class DetailView: UIView {
         
             desciptionLabel.topAnchor.constraint(equalTo: bottomSeparator.bottomAnchor, constant: 28),
             desciptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 22),
-            desciptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -22)]
+            desciptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -22),
+            desciptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -48),]
         
         NSLayoutConstraint.activate(constraints)
     }
