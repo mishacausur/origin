@@ -22,7 +22,7 @@ class MainViewModel: MainViewOutput {
                     case .success(let contacts):
                         self?.viewInput?.configureViews(contacts.self)
                     case .failure(_):
-                        print("error occured")
+                        self?.viewInput?.showError()
                     }
                 }
             }
@@ -34,7 +34,7 @@ class MainViewModel: MainViewOutput {
                     case .success(let contacts):
                         self?.viewInput?.configureViews(contacts.self)
                     case .failure(_):
-                        print("error occured")
+                        self?.viewInput?.showError()
                     }
                 }
             }
