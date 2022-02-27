@@ -8,19 +8,34 @@
 import Foundation
 
 class MainViewModel: MainViewOutput {
-    
+                         
     var viewInput: MainViewInput?
     
     var coordinator: Coordinator?
     
-    let queue = DispatchQueue(label: "background", qos: .background, attributes: .concurrent)
-    
     func getData() {
-        queue.async {
-            NetworkManager.shared.getData([.one, .two, .three]) { [weak self] contacts in
+        if AppManager.shared.chackDate() {
+            AppManager.shared.getDataFromServer { [weak self] result in
                 defer { withExtendedLifetime(self) {} }
                 DispatchQueue.main.async {
-                    self?.viewInput?.configureViews(contacts.sorted { $0.name < $1.name })
+                    switch result {
+                    case .success(let contacts):
+                        self?.viewInput?.configureViews(contacts.self)
+                    case .failure(_):
+                        print("error occured")
+                    }
+                }
+            }
+        } else {
+            AppManager.shared.getdataFromDatabase {[weak self] result in
+                defer { withExtendedLifetime(self) {} }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let contacts):
+                        self?.viewInput?.configureViews(contacts.self)
+                    case .failure(_):
+                        print("error occured")
+                    }
                 }
             }
         }

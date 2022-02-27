@@ -36,6 +36,11 @@
 		B623A6ED27C910C800B41ED4 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6EC27C910C800B41ED4 /* DetailViewModel.swift */; };
 		B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */; };
 		B623A6F127C96B3200B41ED4 /* StringHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F027C96B3200B41ED4 /* StringHelpers.swift */; };
+		B623A6F427CB8C5500B41ED4 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = B623A6F327CB8C5500B41ED4 /* GRDB */; };
+		B623A6F627CB8C6D00B41ED4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F527CB8C6D00B41ED4 /* DataManager.swift */; };
+		B623A6F927CB9F6200B41ED4 /* PersistantExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */; };
+		B6542F1B27CBC15800105C48 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1A27CBC15800105C48 /* DatabaseModel.swift */; };
+		B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1D27CBCE3400105C48 /* AppManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +75,10 @@
 		B623A6EC27C910C800B41ED4 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFormatter.swift; sourceTree = "<group>"; };
 		B623A6F027C96B3200B41ED4 /* StringHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelpers.swift; sourceTree = "<group>"; };
+		B623A6F527CB8C6D00B41ED4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantExtension.swift; sourceTree = "<group>"; };
+		B6542F1A27CBC15800105C48 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
+		B6542F1D27CBCE3400105C48 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B623A6F427CB8C5500B41ED4 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B623A6D727C8E2AA00B41ED4 /* Networker */,
-				B623A6D427C8E0D200B41ED4 /* DataModel */,
+				B623A6D427C8E0D200B41ED4 /* DataManager */,
 				B623A6C627C8DBD000B41ED4 /* UserFlows */,
 				B623A6B927C8DA6F00B41ED4 /* Helpers */,
 				B623A6AC27C8D69800B41ED4 /* Coordinator */,
@@ -204,12 +214,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		B623A6D427C8E0D200B41ED4 /* DataModel */ = {
+		B623A6D427C8E0D200B41ED4 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
 				B623A6D527C8E0E400B41ED4 /* ContactModel.swift */,
+				B6542F1A27CBC15800105C48 /* DatabaseModel.swift */,
+				B623A6F527CB8C6D00B41ED4 /* DataManager.swift */,
+				B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */,
+				B6542F1D27CBCE3400105C48 /* AppManager.swift */,
 			);
-			path = DataModel;
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		B623A6D727C8E2AA00B41ED4 /* Networker */ = {
@@ -256,6 +270,9 @@
 			dependencies = (
 			);
 			name = origin;
+			packageProductDependencies = (
+				B623A6F327CB8C5500B41ED4 /* GRDB */,
+			);
 			productName = origin;
 			productReference = B623A69327C8D56D00B41ED4 /* origin.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +301,9 @@
 				Base,
 			);
 			mainGroup = B623A68A27C8D56D00B41ED4;
+			packageReferences = (
+				B623A6F227CB8C5500B41ED4 /* XCRemoteSwiftPackageReference "GRDB" */,
+			);
 			productRefGroup = B623A69427C8D56D00B41ED4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -310,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6542F1B27CBC15800105C48 /* DatabaseModel.swift in Sources */,
 				B623A6BF27C8DAAD00B41ED4 /* Controller.swift in Sources */,
 				B623A6CE27C8DC4000B41ED4 /* MainView.swift in Sources */,
 				B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */,
@@ -319,6 +340,7 @@
 				B623A6E627C9107C00B41ED4 /* DetailView.swift in Sources */,
 				B623A6D927C8E2B900B41ED4 /* NetworkManager.swift in Sources */,
 				B623A6E427C9107100B41ED4 /* DetailViewController.swift in Sources */,
+				B623A6F927CB9F6200B41ED4 /* PersistantExtension.swift in Sources */,
 				B623A6EB27C910BA00B41ED4 /* DetailViewOutput.swift in Sources */,
 				B623A6CC27C8DC1600B41ED4 /* MainViewModel.swift in Sources */,
 				B623A6DE27C8FA0300B41ED4 /* ContactTableViewCell.swift in Sources */,
@@ -327,7 +349,9 @@
 				B623A6ED27C910C800B41ED4 /* DetailViewModel.swift in Sources */,
 				B623A6D127C8DC9C00B41ED4 /* MainViewInput.swift in Sources */,
 				B623A6E927C910AF00B41ED4 /* DetailViewInput.swift in Sources */,
+				B623A6F627CB8C6D00B41ED4 /* DataManager.swift in Sources */,
 				B623A6E027C8FD1B00B41ED4 /* MultiplyViews.swift in Sources */,
+				B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */,
 				B623A6D627C8E0E400B41ED4 /* ContactModel.swift in Sources */,
 				B623A6AE27C8D6A800B41ED4 /* Coordinator.swift in Sources */,
 				B623A69B27C8D56D00B41ED4 /* MainViewController.swift in Sources */,
@@ -550,6 +574,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B623A6F227CB8C5500B41ED4 /* XCRemoteSwiftPackageReference "GRDB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B623A6F327CB8C5500B41ED4 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B623A6F227CB8C5500B41ED4 /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B623A68B27C8D56D00B41ED4 /* Project object */;
 }
