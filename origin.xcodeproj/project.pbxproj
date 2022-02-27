@@ -41,6 +41,9 @@
 		B623A6F927CB9F6200B41ED4 /* PersistantExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */; };
 		B6542F1B27CBC15800105C48 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1A27CBC15800105C48 /* DatabaseModel.swift */; };
 		B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1D27CBCE3400105C48 /* AppManager.swift */; };
+		B6542F2027CBF28800105C48 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */; };
+		B6542F2427CBF2EC00105C48 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F2327CBF2EC00105C48 /* Result.swift */; };
+		B6542F2627CBF30800105C48 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F2527CBF30800105C48 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantExtension.swift; sourceTree = "<group>"; };
 		B6542F1A27CBC15800105C48 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		B6542F1D27CBCE3400105C48 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		B6542F2327CBF2EC00105C48 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		B6542F2527CBF30800105C48 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +118,8 @@
 		B623A69527C8D56D00B41ED4 /* origin */ = {
 			isa = PBXGroup;
 			children = (
+				B6542F2127CBF2B700105C48 /* Managers */,
 				B623A6D727C8E2AA00B41ED4 /* Networker */,
-				B623A6D427C8E0D200B41ED4 /* DataManager */,
 				B623A6C627C8DBD000B41ED4 /* UserFlows */,
 				B623A6B927C8DA6F00B41ED4 /* Helpers */,
 				B623A6AC27C8D69800B41ED4 /* Coordinator */,
@@ -221,7 +227,6 @@
 				B6542F1A27CBC15800105C48 /* DatabaseModel.swift */,
 				B623A6F527CB8C6D00B41ED4 /* DataManager.swift */,
 				B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */,
-				B6542F1D27CBCE3400105C48 /* AppManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -252,6 +257,26 @@
 				B623A6EA27C910BA00B41ED4 /* DetailViewOutput.swift */,
 			);
 			path = DetailViewModel;
+			sourceTree = "<group>";
+		};
+		B6542F2127CBF2B700105C48 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B6542F2227CBF2C800105C48 /* AppManagers */,
+				B623A6D427C8E0D200B41ED4 /* DataManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B6542F2227CBF2C800105C48 /* AppManagers */ = {
+			isa = PBXGroup;
+			children = (
+				B6542F1D27CBCE3400105C48 /* AppManager.swift */,
+				B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */,
+				B6542F2527CBF30800105C48 /* AppError.swift */,
+				B6542F2327CBF2EC00105C48 /* Result.swift */,
+			);
+			path = AppManagers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,8 +359,10 @@
 				B623A6BF27C8DAAD00B41ED4 /* Controller.swift in Sources */,
 				B623A6CE27C8DC4000B41ED4 /* MainView.swift in Sources */,
 				B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */,
+				B6542F2627CBF30800105C48 /* AppError.swift in Sources */,
 				B623A6BD27C8DA8A00B41ED4 /* Configure.swift in Sources */,
 				B623A6BB27C8DA7B00B41ED4 /* StyleGuide.swift in Sources */,
+				B6542F2027CBF28800105C48 /* UserDefaultsManager.swift in Sources */,
 				B623A6E227C906F500B41ED4 /* ContactsTableView.swift in Sources */,
 				B623A6E627C9107C00B41ED4 /* DetailView.swift in Sources */,
 				B623A6D927C8E2B900B41ED4 /* NetworkManager.swift in Sources */,
@@ -350,6 +377,7 @@
 				B623A6D127C8DC9C00B41ED4 /* MainViewInput.swift in Sources */,
 				B623A6E927C910AF00B41ED4 /* DetailViewInput.swift in Sources */,
 				B623A6F627CB8C6D00B41ED4 /* DataManager.swift in Sources */,
+				B6542F2427CBF2EC00105C48 /* Result.swift in Sources */,
 				B623A6E027C8FD1B00B41ED4 /* MultiplyViews.swift in Sources */,
 				B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */,
 				B623A6D627C8E0E400B41ED4 /* ContactModel.swift in Sources */,
