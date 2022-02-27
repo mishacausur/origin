@@ -9,8 +9,13 @@ import Foundation
 import UIKit
 
 class ContactsTableView: UIView {
+    
     var completion: ((ContactModel) -> Void)?
+    var update: (()->())?
     var contacts: [ContactModel]
+    private var filteredContacts: [ContactModel] = []
+    private var isFiltered: Bool = false
+//    private let searchController = UISearchController(searchResultsController: nil)
     
     private lazy var tableView = UITableView(frame: .zero, style: .grouped).configure {
         $0.delegate = self
@@ -25,6 +30,7 @@ class ContactsTableView: UIView {
         self.contacts = contacts
         super.init(frame: frame)
         self.backgroundColor = .white
+//        tableView.tableHeaderView = searchController.searchBar
         configureView()
     }
     required init?(coder: NSCoder) {
@@ -37,22 +43,73 @@ class ContactsTableView: UIView {
          tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
          tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
          tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)].forEach { $0.isActive = true}
+        configureRefreshControl()
     }
+    
+    private func configureRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc private func handleRefreshControl() {
+        DispatchQueue.main.async {
+            self.update?()
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
 }
 
 extension ContactsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        if isFiltered {
+            return filteredContacts.count
+        } else {
+            return contacts.count
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ContactTableViewCell
-        cell.extendCellWithData(contacts[indexPath.row])
+        if isFiltered {
+            cell.extendCellWithData(filteredContacts[indexPath.row])
+        } else {
+            cell.extendCellWithData(contacts[indexPath.row])
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contact = contacts[indexPath.row]
         completion?(contact)
+    }
+}
+
+extension ContactsTableView: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        if !text.isEmpty {
+            isFiltered = true
+        } else {
+            isFiltered = false
+        }
+        searchContact(text)
+        
+    }
+    
+    private func searchContact(_ searchText: String) {
+        DispatchQueue.global().async {
+            self.filteredContacts = self.contacts.filter({ contact in
+                contact.name.lowercased().contains(searchText.lowercased())
+            })
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+          
+        }
+        
     }
 }

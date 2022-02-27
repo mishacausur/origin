@@ -17,7 +17,7 @@ class MainViewModel: MainViewOutput {
     
     func getData() {
         queue.async {
-            NetworkManager.shared.getData(.one) { [weak self] contacts in
+            NetworkManager.shared.getData([.one, .two, .three]) { [weak self] contacts in
                 defer { withExtendedLifetime(self) {} }
                 DispatchQueue.main.async {
                     self?.viewInput?.configureViews(contacts.sorted { $0.name < $1.name })

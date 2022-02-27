@@ -29,6 +29,12 @@ class MainViewController: UIViewController, ViewController {
             defer { withExtendedLifetime(self) {} }
             self?.viewModel.moveToDetailVC(contact)
         }
+        view().update = { [weak self] in
+            defer { withExtendedLifetime(self) {} }
+            self?.viewModel.getData()
+        }
+        navigationItem.searchController = view().searchController
+        definesPresentationContext = true
     }
 
     override func loadView() {
