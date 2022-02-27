@@ -26,11 +26,6 @@ class DetailViewModel: DetailViewOutput {
         }
         print("calling")
         UIApplication.shared.open(url)
-        
-        let contact = AppDatabase.shared.readContacts()
-        let c = AppDatabase.shared.createContacts(contact)
-        print(c[200])
-        print(c.count)
     }
     
 }
