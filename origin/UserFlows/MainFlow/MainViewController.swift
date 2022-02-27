@@ -34,6 +34,7 @@ class MainViewController: UIViewController, ViewController {
             self?.viewModel.getData()
         }
         navigationItem.searchController = view().searchController
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         definesPresentationContext = true
     }
 
