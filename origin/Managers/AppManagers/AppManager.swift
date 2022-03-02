@@ -34,15 +34,15 @@ class AppManager {
     
     func getDataFromServer(completion: @escaping Completion) {
         queue.async {
-            NetworkManager.shared.getData([.one, .two, .three]) { [weak self] contacts in
-                defer { withExtendedLifetime(self) {} }
-                if !contacts.isEmpty {
+            NetworkManager.shared.getData([.one, .two, .three]) { result in
+                switch result {
+                case .success(let contacts):
                     DispatchQueue.main.async {
                         completion(.success(contacts.sorted { $0.name < $1.name }))
                         print("from interner")
                         UserDefaultsManager.shared.updateValue()
                     }
-                } else {
+                case .failure(_):
                     completion(.failure(.cantGetData))
                 }
             }

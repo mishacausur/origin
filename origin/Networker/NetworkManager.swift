@@ -8,12 +8,15 @@
 import Foundation
 
 class NetworkManager {
+    
+    typealias Completion = (Result <[ContactModel], Error>) -> Void
+    
     static let shared = NetworkManager()
     
     private init() {
     }
     
-    func getData(_ links: [Links], completion: @escaping ([ContactModel]) -> Void) {
+    func getData(_ links: [Links], completion: @escaping Completion) {
         var count = 0
         var list: [ContactModel] = []
         for link in links {
@@ -26,11 +29,12 @@ class NetworkManager {
                 guard let contacts = data else { return }
                 do {
                     let models = try JSONDecoder().decode([ContactModel].self, from: contacts)
-                    list = list + models
+                    list.append(contentsOf: models)
                     if count == links.count {
-                        completion(list)
+                        completion(.success(list))
                     }
                 } catch let error {
+                    completion(.failure(error))
                     print(error.localizedDescription)
                 }
             }.resume()
