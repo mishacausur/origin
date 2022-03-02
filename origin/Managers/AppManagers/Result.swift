@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum Result {
-    case success([ContactModel]), failure(AppError)
-}
+//enum Result {
+//    case success([ContactModel]), failure(AppError)
+//}

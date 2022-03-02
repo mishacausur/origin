@@ -10,6 +10,8 @@ import UIKit
 import SwiftUI
 
 class AppManager {
+    typealias Completion = (Result <[ContactModel], AppError>) -> Void
+    
     let queue = DispatchQueue(label: "background", qos: .background, attributes: .concurrent)
     static let shared = AppManager()
     private init() {}
@@ -30,7 +32,7 @@ class AppManager {
         }
     }
     
-    func getDataFromServer(completion: @escaping (Result)->()) {
+    func getDataFromServer(completion: @escaping Completion) {
         queue.async {
             NetworkManager.shared.getData([.one, .two, .three]) { [weak self] contacts in
                 defer { withExtendedLifetime(self) {} }
@@ -47,7 +49,7 @@ class AppManager {
         }
     }
     
-    func getdataFromDatabase(completion: @escaping (Result) -> ()) {
+    func getdataFromDatabase(completion: @escaping Completion) {
         queue.async {
             let models = AppDatabase.shared.readContacts()
             let contacts = AppDatabase.shared.createContacts(models)
