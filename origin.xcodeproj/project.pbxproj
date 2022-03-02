@@ -42,7 +42,6 @@
 		B6542F1B27CBC15800105C48 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1A27CBC15800105C48 /* DatabaseModel.swift */; };
 		B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1D27CBCE3400105C48 /* AppManager.swift */; };
 		B6542F2027CBF28800105C48 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */; };
-		B6542F2427CBF2EC00105C48 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F2327CBF2EC00105C48 /* Result.swift */; };
 		B6542F2627CBF30800105C48 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F2527CBF30800105C48 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +82,6 @@
 		B6542F1A27CBC15800105C48 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		B6542F1D27CBCE3400105C48 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		B6542F2327CBF2EC00105C48 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B6542F2527CBF30800105C48 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,7 +272,6 @@
 				B6542F1D27CBCE3400105C48 /* AppManager.swift */,
 				B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */,
 				B6542F2527CBF30800105C48 /* AppError.swift */,
-				B6542F2327CBF2EC00105C48 /* Result.swift */,
 			);
 			path = AppManagers;
 			sourceTree = "<group>";
@@ -377,7 +374,6 @@
 				B623A6D127C8DC9C00B41ED4 /* MainViewInput.swift in Sources */,
 				B623A6E927C910AF00B41ED4 /* DetailViewInput.swift in Sources */,
 				B623A6F627CB8C6D00B41ED4 /* DataManager.swift in Sources */,
-				B6542F2427CBF2EC00105C48 /* Result.swift in Sources */,
 				B623A6E027C8FD1B00B41ED4 /* MultiplyViews.swift in Sources */,
 				B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */,
 				B623A6D627C8E0E400B41ED4 /* ContactModel.swift in Sources */,
