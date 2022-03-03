@@ -7,9 +7,10 @@
 
 import Foundation
 import UIKit
-import SwiftUI
+import os.log
 
 class AppManager {
+    
     typealias Completion = (Result <[ContactModel], AppError>) -> Void
     
     let queue = DispatchQueue(label: "background", qos: .background, attributes: .concurrent)
@@ -33,8 +34,14 @@ class AppManager {
     }
     
     func getDataFromServer(completion: @escaping Completion) {
+        if #available(iOS 12.0, *) {
+            os_signpost(.begin, log: .point, name: "loadData")
+        }
         queue.async {
             NetworkManager.shared.getData([.one, .two, .three]) { result in
+                if #available(iOS 12.0, *) {
+                    os_signpost(.end, log: .point, name: "loadData")
+                } 
                 switch result {
                 case .success(let contacts):
                     DispatchQueue.main.async {

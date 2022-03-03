@@ -43,6 +43,7 @@
 		B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1D27CBCE3400105C48 /* AppManager.swift */; };
 		B6542F2027CBF28800105C48 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */; };
 		B6542F2627CBF30800105C48 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F2527CBF30800105C48 /* AppError.swift */; };
+		B6542F5927D1052F00105C48 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F5827D1052F00105C48 /* OSLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		B6542F1D27CBCE3400105C48 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		B6542F2527CBF30800105C48 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		B6542F5827D1052F00105C48 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				B623A6DF27C8FD1B00B41ED4 /* MultiplyViews.swift */,
 				B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */,
 				B623A6F027C96B3200B41ED4 /* StringHelpers.swift */,
+				B6542F5827D1052F00105C48 /* OSLog.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */,
 				B6542F2627CBF30800105C48 /* AppError.swift in Sources */,
 				B623A6BD27C8DA8A00B41ED4 /* Configure.swift in Sources */,
+				B6542F5927D1052F00105C48 /* OSLog.swift in Sources */,
 				B623A6BB27C8DA7B00B41ED4 /* StyleGuide.swift in Sources */,
 				B6542F2027CBF28800105C48 /* UserDefaultsManager.swift in Sources */,
 				B623A6E227C906F500B41ED4 /* ContactsTableView.swift in Sources */,
