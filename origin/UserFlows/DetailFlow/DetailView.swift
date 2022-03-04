@@ -78,13 +78,15 @@ class DetailView: UIView {
     }
     
     private func configureView() {
+        @Numeric var phoneNumber: String
+        phoneNumber = contact.phone
         nameLabel.text = contact.name
         desciptionLabel.text = contact.biography
         let start = CalendarFormatter.shared.formatted(contact.educationPeriod.start)
         let end = CalendarFormatter.shared.formatted(contact.educationPeriod.end)
         dateLabel.text = "\(start) - \(end)"
         temperamentLabel.text = contact.temperament.rawValue.firstCapitalized
-        makePhoneLabelString(contact.phone.numbered)
+        makePhoneLabelString(phoneNumber)
         gestureCreator()
         self.addSubviews(scrollView)
         scrollView.addSubviews(nameLabel, dateLabel, temperamentLabel, topSeparator, phoneLabel, bottomSeparator, desciptionLabel)

@@ -18,3 +18,17 @@ extension String {
          return !(self.isEmpty) && self.allSatisfy { $0.isNumber }
        }
 }
+
+@propertyWrapper
+struct Numeric {
+    private(set) var value: String = ""
+    
+    var wrappedValue: String {
+        get {
+            return value
+        }
+        set {
+            value = newValue.numbered
+        }
+    }
+}
