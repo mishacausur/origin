@@ -44,6 +44,7 @@
 		B6542F2027CBF28800105C48 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */; };
 		B6542F2627CBF30800105C48 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F2527CBF30800105C48 /* AppError.swift */; };
 		B6542F5927D1052F00105C48 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F5827D1052F00105C48 /* OSLog.swift */; };
+		B6542F5B27D201C500105C48 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F5A27D201C500105C48 /* Print.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		B6542F1F27CBF28800105C48 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		B6542F2527CBF30800105C48 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		B6542F5827D1052F00105C48 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		B6542F5A27D201C500105C48 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				B623A6DF27C8FD1B00B41ED4 /* MultiplyViews.swift */,
 				B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */,
 				B623A6F027C96B3200B41ED4 /* StringHelpers.swift */,
+				B6542F5A27D201C500105C48 /* Print.swift */,
 				B6542F5827D1052F00105C48 /* OSLog.swift */,
 			);
 			path = Helpers;
@@ -357,6 +360,7 @@
 			files = (
 				B6542F1B27CBC15800105C48 /* DatabaseModel.swift in Sources */,
 				B623A6BF27C8DAAD00B41ED4 /* Controller.swift in Sources */,
+				B6542F5B27D201C500105C48 /* Print.swift in Sources */,
 				B623A6CE27C8DC4000B41ED4 /* MainView.swift in Sources */,
 				B623A6EF27C961BC00B41ED4 /* CalendarFormatter.swift in Sources */,
 				B6542F2627CBF30800105C48 /* AppError.swift in Sources */,
@@ -543,9 +547,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mishacausur.origin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -572,9 +578,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mishacausur.origin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

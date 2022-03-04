@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CalendarFormatter {
+struct CalendarFormatter {
     
     static let shared = CalendarFormatter()
     var formatter = DateFormatter().configure {

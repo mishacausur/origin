@@ -13,24 +13,23 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    private init() {
-    }
+    private init() {}
     
-    func getData(_ links: [Links], completion: @escaping Completion) {
-        var count = 0
+    final func getData(_ links: [Links], completion: @escaping Completion) {
+        var count = links.count
         var list: [ContactModel] = []
         for link in links {
             guard let link = URL(string: link.rawValue) else { return }
             URLSession.shared.dataTask(with: link) { data, _, error in
                 guard error == nil else {
-                    print("an error occured \(String(describing: error?.localizedDescription))")
+                    Print.printToConsole("an error occured \(String(describing: error?.localizedDescription))")
                     return
                 }
                 guard let contacts = data else { return }
                 do {
                     let models = try JSONDecoder().decode([ContactModel].self, from: contacts)
                     list.append(contentsOf: models)
-                    if count == links.count {
+                    if count == 0 {
                         completion(.success(list))
                     }
                 } catch let error {
@@ -38,7 +37,7 @@ class NetworkManager {
                     print(error.localizedDescription)
                 }
             }.resume()
-            count += 1
+            count -= 1
         }
     }
 }

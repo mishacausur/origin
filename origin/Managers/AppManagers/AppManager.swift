@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import os.log
 
-class AppManager {
+final class AppManager {
     
     typealias Completion = (Result <[ContactModel], AppError>) -> Void
     
@@ -17,7 +17,7 @@ class AppManager {
     static let shared = AppManager()
     private init() {}
    
-    func chackDate() -> Bool {
+    final func chackDate() -> Bool {
     
         guard let lastDate = UserDefaults.standard.string(forKey: "lastDate"), let doubleDate = Double(lastDate) else {
             print("true")
@@ -33,7 +33,7 @@ class AppManager {
         }
     }
     
-    func getDataFromServer(completion: @escaping Completion) {
+    final func getDataFromServer(completion: @escaping Completion) {
         if #available(iOS 12.0, *) {
             os_signpost(.begin, log: .point, name: "loadData")
         }
@@ -56,7 +56,7 @@ class AppManager {
         }
     }
     
-    func getdataFromDatabase(completion: @escaping Completion) {
+    final func getdataFromDatabase(completion: @escaping Completion) {
         queue.async {
             let models = AppDatabase.shared.readContacts()
             let contacts = AppDatabase.shared.createContacts(models)
