@@ -7,17 +7,32 @@
 
 import Foundation
 
-class UserDefaultsManager {
+struct UserDefaultsManager {
     
-    private let userDefaults = UserDefaults.standard
+    @Defaults<String>(key: "lastDate") private var newValue: String?
     
     static let shared = UserDefaultsManager()
     
     private init() {}
     
-    final func updateValue() {
+    mutating func updateValue() {
         let value = "\(Date().timeIntervalSince1970)"
-        userDefaults.setValue(value, forKey: "lastDate")
-        userDefaults.synchronize()
+        newValue = value
+    }
+}
+
+@propertyWrapper
+struct Defaults<T> {
+    let key: String
+    private let storage: UserDefaults = .standard
+    
+    var wrappedValue: T? {
+        get {
+            return storage.value(forKey: key) as? T
+        }
+        set {
+            storage.setValue(newValue, forKey: key)
+            storage.synchronize()
+        }
     }
 }

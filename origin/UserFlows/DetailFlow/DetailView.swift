@@ -12,6 +12,8 @@ class DetailView: UIView {
     
     var contact: ContactModel
     
+    @Numeric var phoneNumber: String
+    
     var phoneNumberTapped: (() -> Void)?
     
     private let scrollView = UIScrollView(frame: .zero).configure {
@@ -78,7 +80,6 @@ class DetailView: UIView {
     }
     
     private func configureView() {
-        @Numeric var phoneNumber: String
         phoneNumber = contact.phone
         nameLabel.text = contact.name
         desciptionLabel.text = contact.biography
