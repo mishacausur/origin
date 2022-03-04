@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController, ViewController {
     typealias RootView = MainView
-    var viewModel: MainViewOutput
+     var viewModel: MainViewOutput
     
     init(viewModel: MainViewOutput) {
         self.viewModel = viewModel

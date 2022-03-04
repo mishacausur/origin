@@ -15,7 +15,7 @@ class UserDefaultsManager {
     
     private init() {}
     
-    func updateValue() {
+    final func updateValue() {
         let value = "\(Date().timeIntervalSince1970)"
         userDefaults.setValue(value, forKey: "lastDate")
     }

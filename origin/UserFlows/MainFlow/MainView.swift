@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainView: UIView {
+final class MainView: UIView {
     
     var completion: ((ContactModel) -> Void)?
     var update: (() -> Void)?
