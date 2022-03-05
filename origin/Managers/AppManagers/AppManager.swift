@@ -20,15 +20,15 @@ final class AppManager {
     final func chackDate() -> Bool {
     
         guard let lastDate = UserDefaults.standard.string(forKey: "lastDate"), let doubleDate = Double(lastDate) else {
-            print("true")
+            Print.printToConsole("true")
             return true
         }
         let date = Date().timeIntervalSince1970
         if Int(date) - Int(doubleDate) > 60 {
-            print("true")
+            Print.printToConsole("true")
             return true
         } else {
-            print("false")
+            Print.printToConsole("false")
             return false
         }
     }
@@ -46,7 +46,7 @@ final class AppManager {
                 case .success(let contacts):
                     DispatchQueue.main.async {
                         completion(.success(contacts.sorted { $0.name < $1.name }))
-                        print("from interner")
+                        Print.printToConsole("from interner")
                         UserDefaultsManager.shared.updateValue()
                     }
                 case .failure(_):
@@ -61,7 +61,7 @@ final class AppManager {
             let models = AppDatabase.shared.readContacts()
             let contacts = AppDatabase.shared.createContacts(models)
             completion(.success(contacts.sorted { $0.name < $1.name }))
-            print("from database")
+            Print.printToConsole("from database")
         }
     }
 }
