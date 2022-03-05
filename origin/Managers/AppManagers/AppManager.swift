@@ -38,7 +38,7 @@ final class AppManager {
             os_signpost(.begin, log: .point, name: "loadData")
         }
         queue.async {
-            NetworkManager.shared.getData([.one, .two, .three]) { result in
+            NetworkManager.shared.getData(Links.allCases) { result in
                 if #available(iOS 12.0, *) {
                     os_signpost(.end, log: .point, name: "loadData")
                 } 
