@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61ECDA927D36E700016E6D9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61ECDA827D36E700016E6D9 /* Request.swift */; };
 		B623A69727C8D56D00B41ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A69627C8D56D00B41ED4 /* AppDelegate.swift */; };
 		B623A69B27C8D56D00B41ED4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A69A27C8D56D00B41ED4 /* MainViewController.swift */; };
 		B623A6A027C8D56E00B41ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B623A69F27C8D56E00B41ED4 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B61ECDA827D36E700016E6D9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		B623A69327C8D56D00B41ED4 /* origin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = origin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B623A69627C8D56D00B41ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B623A69A27C8D56D00B41ED4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				B623A6EE27C961BC00B41ED4 /* CalendarFormatter.swift */,
 				B623A6F027C96B3200B41ED4 /* StringHelpers.swift */,
 				B64DAEDB27D24B450074D3F6 /* Defaults.swift */,
+				B61ECDA827D36E700016E6D9 /* Request.swift */,
 				B6542F5A27D201C500105C48 /* Print.swift */,
 				B6542F5827D1052F00105C48 /* OSLog.swift */,
 			);
@@ -384,6 +387,7 @@
 				B623A6C227C8DB0600B41ED4 /* Configures.swift in Sources */,
 				B623A6ED27C910C800B41ED4 /* DetailViewModel.swift in Sources */,
 				B623A6D127C8DC9C00B41ED4 /* MainViewInput.swift in Sources */,
+				B61ECDA927D36E700016E6D9 /* Request.swift in Sources */,
 				B623A6E927C910AF00B41ED4 /* DetailViewInput.swift in Sources */,
 				B623A6F627CB8C6D00B41ED4 /* DataManager.swift in Sources */,
 				B623A6E027C8FD1B00B41ED4 /* MultiplyViews.swift in Sources */,
