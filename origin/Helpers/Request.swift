@@ -36,11 +36,6 @@ class RequestQueue<Response, Error: Swift.Error> {
         case .some(_):
             perform(typeErased)
         }
-        //        guard ongoing == nil else {
-        //            queue.append(typeErased)
-        //            return
-        //        }
-        //        perform(typeErased)
     }
     
     private func perform(_ request: TypeErasedRequest) {
