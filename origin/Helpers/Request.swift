@@ -8,7 +8,9 @@
 import Foundation
 
 protocol Request {
+    
     associatedtype Response
+    
     associatedtype Error: Swift.Error
     
     typealias Handler = (Result<Response, Error>) -> Void
@@ -24,12 +26,17 @@ struct AnyRequest<Response, Error: Swift.Error> {
 }
 
 class RequestQueue<Response, Error: Swift.Error> {
+    
     private typealias TypeErasedRequest = AnyRequest<Response, Error>
     
     private var queue = [TypeErasedRequest]()
+    
     private var ongoing: TypeErasedRequest?
+    
     func add<R: Request>(_ request: R, handler: @escaping R.Handler) where R.Response == Response, R.Error == Error {
+        
         let typeErased = AnyRequest(perform: request.perform, handler: handler)
+        
         switch ongoing {
         case .none:
             queue.append(typeErased)

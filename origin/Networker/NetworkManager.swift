@@ -7,9 +7,24 @@
 
 import Foundation
 
+class Requester: Request {
+   
+    typealias Response = [ContactModel]
+    
+    typealias Error = Swift.Error
+    
+    func perform(then handler: @escaping Handler) {
+        handler(.success([ContactModel]()))
+    }
+}
+
 class NetworkManager {
     
     typealias Completion = (Result <[ContactModel], Error>) -> Void
+    
+    let request = RequestQueue<[ContactModel], Error>()
+    
+    let requester = Requester()
     
     static let shared = NetworkManager()
     
@@ -30,6 +45,7 @@ class NetworkManager {
                     let models = try JSONDecoder().decode([ContactModel].self, from: contacts)
                     list.append(contentsOf: models)
                     if count == 0 {
+                        self.request.add(self.requester) { _ in print("requseter") }
                         completion(.success(list))
                     }
                 } catch let error {
