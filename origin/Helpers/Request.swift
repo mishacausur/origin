@@ -30,11 +30,17 @@ class RequestQueue<Response, Error: Swift.Error> {
     private var ongoing: TypeErasedRequest?
     func add<R: Request>(_ request: R, handler: @escaping R.Handler) where R.Response == Response, R.Error == Error {
         let typeErased = AnyRequest(perform: request.perform, handler: handler)
-        guard ongoing == nil else {
+        switch ongoing {
+        case .none:
             queue.append(typeErased)
-            return
+        case .some(_):
+            perform(typeErased)
         }
-        perform(typeErased)
+        //        guard ongoing == nil else {
+        //            queue.append(typeErased)
+        //            return
+        //        }
+        //        perform(typeErased)
     }
     
     private func perform(_ request: TypeErasedRequest) {
