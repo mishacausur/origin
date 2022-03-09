@@ -31,10 +31,10 @@ class NetworkManager {
     private init() {}
     
     final func getData(_ links: [Links], completion: @escaping Completion) {
-        var count = links.count
+        let linkers = links.compactMap { URL.init(string: $0.rawValue) }
+        var count = linkers.count
         var list: [ContactModel] = []
-        for link in links {
-            guard let link = URL(string: link.rawValue) else { return }
+        for link in linkers {
             URLSession.shared.dataTask(with: link) { data, _, error in
                 guard error == nil else {
                     Print.printToConsole("an error occured \(String(describing: error?.localizedDescription))")
