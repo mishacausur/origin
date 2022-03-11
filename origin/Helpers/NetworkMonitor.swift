@@ -9,11 +9,12 @@ import Foundation
 import Network
 
 @available(iOS 12.0, *)
-struct NetworkMonitor {
+final class NetworkMonitor {
     static let shared = NetworkMonitor()
     let queue = DispatchQueue.global()
     let monitor: NWPathMonitor
     public private(set) var isConnected: Bool = false
+    public private(set) var connectionType: ConnetcionType?
     
     private init() {
         monitor = NWPathMonitor()
@@ -21,8 +22,29 @@ struct NetworkMonitor {
     
     func startMonitoring() {
         monitor.start(queue: queue)
-        monitor.pathUpdateHandler = {
-            
+        monitor.pathUpdateHandler = { [weak self] path in
+            self?.isConnected = path.status == .satisfied
+            getConnectionType(path)
+        }
+    }
+    
+    func stopMonitoring() {
+        monitor.cancel()
+    }
+    
+    func getConnectionType(_ path: NWPath) {
+        if path.usesInterfaceType(.wifi) {
+            connectionType = .wifi
+        } else if path.usesInterfaceType(.cellular) {
+            connectionType = .cellular
+        } else if path.usesInterfaceType(.wiredEthernet) {
+            connectionType = .ethernet
         }
     }
  }
+
+enum ConnetcionType {
+    case wifi
+    case cellular
+    case ethernet
+}
