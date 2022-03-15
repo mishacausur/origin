@@ -9,12 +9,14 @@ import UIKit
 
 class MainViewController: UIViewController, ViewController {
     typealias RootView = MainView
-     var viewModel: MainViewOutput
+    var viewModel: MainViewOutput
+    let loader = LoadingViewController()
     
     init(viewModel: MainViewOutput) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.viewModel.viewInput = self
+        add(loader)
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +49,7 @@ class MainViewController: UIViewController, ViewController {
 extension MainViewController: MainViewInput {
     
     func configureViews(_ contacts: [ContactModel]) {
+        loader.remove()
         view().setupView(contacts)
     }
     

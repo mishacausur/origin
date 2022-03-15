@@ -16,7 +16,7 @@ class ContactsTableView: UIView {
     private var filteredContacts: [ContactModel] = []
     private var isFiltered: Bool = false
     
-    private lazy var tableView = UITableView(frame: .zero, style: .grouped).configure {
+    private lazy var tableView = UITableView(frame: .zero, style: .plain).configure {
         $0.delegate = self
         $0.dataSource = self
         $0.backgroundColor = .white

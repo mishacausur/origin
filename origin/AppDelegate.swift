@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+        if #available(iOS 12.0, *) {
+            NetworkMonitor.shared.startMonitoring()
+        } 
         let navigationController = UINavigationController()
         navigationController.navigationBar.prefersLargeTitles = true
         coodinator = Coordinator(navigationController: navigationController)
