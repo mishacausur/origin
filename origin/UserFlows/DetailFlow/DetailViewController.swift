@@ -34,6 +34,16 @@ class DetailViewController: UIViewController, ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.largeTitleDisplayMode = .never
+       
+        guard let coordinator = transitionCoordinator else {
+            print("no transition coordinator :(")
+            return
+        }
+        coordinator.animate { context in
+            self.view().entartainment()
+        } completion: { _ in
+            print("animation is finished")
+        }
     }
     
     override func loadView() {

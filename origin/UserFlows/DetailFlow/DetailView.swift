@@ -19,6 +19,7 @@ class DetailView: UIView {
     private let scrollView = UIScrollView(frame: .zero).configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .clear
+        $0.alpha = 0
     }
 
     private let nameLabel = UILabel().configure {
@@ -72,11 +73,15 @@ class DetailView: UIView {
         self.contact = contact
         super.init(frame: frame)
         configureView()
-        self.backgroundColor = .white
+        self.backgroundColor = .red
         
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func entartainment() {
+        scrollView.alpha = 1
     }
     
     private func configureView() {
