@@ -42,6 +42,7 @@
 		B623A6F627CB8C6D00B41ED4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F527CB8C6D00B41ED4 /* DataManager.swift */; };
 		B623A6F927CB9F6200B41ED4 /* PersistantExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */; };
 		B64912F027E0C1220067449D /* ChildrensViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64912EF27E0C1220067449D /* ChildrensViewControllers.swift */; };
+		B64912F227E0C35B0067449D /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64912F127E0C35B0067449D /* LoaderViewController.swift */; };
 		B64DAEDC27D24B450074D3F6 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64DAEDB27D24B450074D3F6 /* Defaults.swift */; };
 		B6542F1B27CBC15800105C48 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1A27CBC15800105C48 /* DatabaseModel.swift */; };
 		B6542F1E27CBCE3400105C48 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542F1D27CBCE3400105C48 /* AppManager.swift */; };
@@ -88,6 +89,7 @@
 		B623A6F527CB8C6D00B41ED4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B623A6F827CB9F6200B41ED4 /* PersistantExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantExtension.swift; sourceTree = "<group>"; };
 		B64912EF27E0C1220067449D /* ChildrensViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrensViewControllers.swift; sourceTree = "<group>"; };
+		B64912F127E0C35B0067449D /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		B64DAEDB27D24B450074D3F6 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		B6542F1A27CBC15800105C48 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		B6542F1D27CBCE3400105C48 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				B623A6C727C8DBD800B41ED4 /* MainFlow */,
 				B623A6C827C8DBE100B41ED4 /* DetailFlow */,
+				B64912F127E0C35B0067449D /* LoaderViewController.swift */,
 			);
 			path = UserFlows;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				B623A6DB27C8E35A00B41ED4 /* Links.swift in Sources */,
 				B623A6AB27C8D64200B41ED4 /* Coordinating.swift in Sources */,
 				B623A69727C8D56D00B41ED4 /* AppDelegate.swift in Sources */,
+				B64912F227E0C35B0067449D /* LoaderViewController.swift in Sources */,
 				B623A6D327C8DCA600B41ED4 /* MainViewOutput.swift in Sources */,
 				B61ECE0B27DB8BE50016E6D9 /* NetworkMonitor.swift in Sources */,
 				B623A6F127C96B3200B41ED4 /* StringHelpers.swift in Sources */,
