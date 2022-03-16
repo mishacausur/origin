@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ContactsTableView: UIView {
+final class ContactsTableView: UIView {
     
     var completion: ((ContactModel) -> Void)?
     var update: (()->())?

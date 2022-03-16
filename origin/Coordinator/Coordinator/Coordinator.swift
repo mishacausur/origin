@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Coordinator: Coordinating {
+struct Coordinator: Coordinating {
     var navigationController: UINavigationController?
     func eventOccured(_ event: Events, contact: ContactModel?) {
         switch event {

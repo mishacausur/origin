@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactTableViewCell: UITableViewCell {
+final class ContactTableViewCell: UITableViewCell {
     
     private let nameLabel = UILabel().configure {
         $0.translatesAutoresizingMaskIntoConstraints = false

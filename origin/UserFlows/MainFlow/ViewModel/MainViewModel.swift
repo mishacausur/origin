@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MainViewModel: MainViewOutput {
+struct MainViewModel: MainViewOutput {
                          
     var viewInput: MainViewInput?
     

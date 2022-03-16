@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DetailView: UIView {
+final class DetailView: UIView {
     
     var contact: ContactModel
     

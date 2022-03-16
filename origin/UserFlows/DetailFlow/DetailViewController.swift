@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, ViewController {
+final class DetailViewController: UIViewController, ViewController {
     
     typealias RootView = DetailView
     var viewModel: DetailViewOutput

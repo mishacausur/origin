@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, ViewController {
+final class MainViewController: UIViewController, ViewController {
     typealias RootView = MainView
     var viewModel: MainViewOutput
     let loader = LoadingViewController()

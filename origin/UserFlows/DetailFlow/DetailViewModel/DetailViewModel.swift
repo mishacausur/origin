@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DetailViewModel: DetailViewOutput {
+struct DetailViewModel: DetailViewOutput {
 
     var contact: ContactModel
     var coordinator: Coordinator?

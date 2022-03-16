@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-final class AppDatabase {
+struct AppDatabase {
     
     init(_ databaseWriter: DatabaseWriter) throws {
         self.databaseWriter = databaseWriter

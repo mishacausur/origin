@@ -9,7 +9,7 @@ import Foundation
 import Network
 
 @available(iOS 12.0, *)
-final class NetworkMonitor {
+struct NetworkMonitor {
     static let shared = NetworkMonitor()
     let queue = DispatchQueue.global()
     let monitor: NWPathMonitor
@@ -32,7 +32,7 @@ final class NetworkMonitor {
         monitor.cancel()
     }
     
-    func getConnectionType(_ path: NWPath) {
+    mutating func getConnectionType(_ path: NWPath) {
         if path.usesInterfaceType(.wifi) {
             connectionType = .wifi
         } else if path.usesInterfaceType(.cellular) {

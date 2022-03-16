@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import os.log
 
-final class AppManager {
+struct AppManager {
     
     typealias Completion = (Result <[ContactModel], AppError>) -> Void
     
@@ -17,7 +17,7 @@ final class AppManager {
     static let shared = AppManager()
     private init() {}
    
-    final func chackDate() -> Bool {
+    func chackDate() -> Bool {
     
         guard let lastDate = UserDefaults.standard.string(forKey: "lastDate"), let doubleDate = Double(lastDate) else {
             Print.printToConsole("true")
