@@ -20,7 +20,6 @@ class Coordinator: Coordinating {
             guard let contact = contact else {
                 return
             }
-
             toDetailViewController(contact)
         }
     }
@@ -45,7 +44,5 @@ class Coordinator: Coordinating {
     
     private func dismiss() {
         navigationController?.dismiss(animated: true)
-        
     }
-    
 }
